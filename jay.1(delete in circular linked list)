@@ -1,0 +1,35 @@
+void deleteNode(Node* &tail, int value) {
+
+    
+    if(tail == NULL) {
+        cout << " List is empty, please check again" << endl;
+        return;
+    }
+    else{
+         
+        Node* prev = tail;
+        Node* curr = prev -> next;
+
+        while(curr -> data != value) {
+            prev = curr;
+            curr = curr -> next;
+        }
+
+        prev -> next = curr -> next;
+
+         
+        if(curr == prev) {
+            tail = NULL;
+        }
+
+         
+        else if(tail == curr ) {
+            tail = prev;
+        }
+
+        curr -> next = NULL;
+        delete curr;
+
+    }
+
+}
